@@ -1,0 +1,83 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+        <h2>Contacto</h2>
+        <p>Contáctanos.</p>
+        </div>
+
+        <div class="row no-gutters justify-content-center" data-aos="fade-up">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+            <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Ubicación:</h4>
+                <p>Av Independencia Nacional 151, Centro, 48900 Autlán de Navarro, Jalisco, México</p>
+            </div>
+
+            <div class="email mt-4">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+            </div>
+
+            <div class="phone mt-4">
+                <i class="bi bi-phone"></i>
+                <h4>Llamar:</h4>
+                <p>+52 3170 0000 00</p>
+            </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15018.165882355599!2d-104.3645603951655!3d19.774626713305977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842455c1335870e3%3A0xe7d17fa63c416f2e!2sCentro%20Universitario%20de%20la%20Costa%20Sur!5e0!3m2!1ses-419!2smx!4v1687579631905!5m2!1ses-419!2smx" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        </div>
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+            <form action="" method="post" role="form" class="php-email-form">
+                    {% csrf_token %}
+                    
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        {{ form.name }}
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.subject }}
+                </div>
+                <div class="form-group mt-3">
+                    {{ form.message }}
+                </div>
+                <div class="my-3">
+                {% for field in form.visible_fields %}
+                <div class="fieldWrapper">
+                    <div class="error-message">{{ field.errors }}
+                        {{ field.label_tag }} {{ field }}</div>
+                    
+                </div>
+                {% endfor %}
+                
+                    <div class="loading">Loading</div>
+                    
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center">
+                    <button  type="submit">Enviar Mensaje</button>
+                </div>
+            </form>
+        </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

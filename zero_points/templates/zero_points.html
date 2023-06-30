@@ -1,0 +1,16 @@
+{% extends 'inner-page.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+{% block innercontent %}
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <h1>{% if subtitle %}{{subtitle}} {% else %}{{title}}{% endif %}</h1>
+            <div class="d-flex align-items-stretch">
+                {% if file_html %}{% include file_html %}{% endif %}
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock innercontent %}

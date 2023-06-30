@@ -1,0 +1,34 @@
+{% extends 'principal.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+{% block content %}
+<html>
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        {% block breadcrumbs %}
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                <h2>{{title}}</h2>
+                <ol>
+                    <li><a href={% url 'home' %}>Inicio</a></li>
+                    {% if subtitle %}<li><a href= {% url title %}> {{title}} </a></li>
+                    {% else %} <li> {{title}} </li>{% endif %}
+                    {% if subtitle %}<li>{{ subtitle }}</li>{% endif %}
+                </ol>
+                </div>
+            </div>
+        </section>
+        {% endblock breadcrumbs %}<!-- End Breadcrumbs Section -->
+    </main><!-- End #main -->
+
+    <body>
+        <section class="inner-page">
+            {% block innercontent %}
+            {% endblock innercontent %}
+        </section>
+    </body>
+
+</html>
+
+{% endblock content %}
