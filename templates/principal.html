@@ -52,8 +52,8 @@
             <ul>
             <li><a class="nav-link scrollto active" href="{% url 'home' %}#hero">Inicio</a></li>
             <li><a class="nav-link scrollto" href="{% url 'home' %}#about">Acerca de</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'home' %}#features">Caracteristicas</a></li>
-            <li><a class="nav-link scrollto " href="{% url 'home' %}#portfolio">Imágenes</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'home' %}#features">Pasos</a></li>
+            <li><a class="nav-link scrollto " href="{% url 'home' %}#portfolio">Galería</a></li>
             <li><a class="nav-link scrollto" href="{% url 'home' %}#team">Equipo</a></li>
             <li class="dropdown"><a href="#"><span>Sitios de Interes</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
@@ -135,10 +135,10 @@
 
             <div class="col-lg-4 col-md-6 footer-newsletter">
                 <h4>Nuestro boletín</h4>
-                <p>Enterate de nuestras últimas actualizaciones y noticas sobre el mundo del Control Númerico</p>
-                {% csrf_token %}
+                <p>Enterate de nuestras últimas actualizaciones y noticas sobre el mundo del Control Númerico y Diseño</p>
                 <form action="" method="post">
-                <input type="email" name="email"><input type="submit" value="Subscribete">
+                {% csrf_token %}
+                <input type="email" name="email"><input type="submit" value="Suscríbete">
                 </form>
 
             </div>
