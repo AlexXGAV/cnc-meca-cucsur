@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from cnc_meca_cucsur.settings import EMAIL_HOST_USER
 from .forms import ContactForm
 from django.core.mail import EmailMessage
+from .models import Teammate, Gallery
 
 def home(request):
     contact_form = ContactForm()
+    team = Teammate.objects.all()
+    gallery = Gallery.objects.all()
 
     if request.method == "POST":
         print("Hola")
@@ -30,5 +33,8 @@ def home(request):
             except:
                 return redirect("/contacto/?error")
             
-    context={'form':contact_form}
+    context={'form':contact_form,
+            'team': team,
+            'galleries': gallery}
+
     return render(request, 'index.html', context=context)
