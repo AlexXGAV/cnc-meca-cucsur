@@ -1,5 +1,8 @@
+"""Models for the home page"""
+
 import os
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class Teammate(models.Model):
     first_name = models.CharField(max_length=30)
@@ -17,8 +20,8 @@ class Teammate(models.Model):
     linkedin_url = models.URLField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'compañero de equipo'
-        verbose_name_plural = 'compañeros de equipo'
+        verbose_name = _("teammate")
+        verbose_name_plural = _("teammates")
 
     def save(self, *args, **kwargs):
 
@@ -39,9 +42,9 @@ class Teammate(models.Model):
 class Gallery(models.Model):
 
     class type_of_gallery(models.TextChoices):
-        DEVELOPMENT = "DEV", ("Development")
-        RESULT = "RE", ("Result")
-        EXAMPLE = "EX", ("Example")
+        DEVELOPMENT = "DEV", _('development')
+        RESULT = "RE", _('result')
+        EXAMPLE = "EX", _('example')
 
     gallery = models.CharField(
         choices=type_of_gallery.choices,
@@ -49,27 +52,23 @@ class Gallery(models.Model):
         max_length=30
     )
 
-    title = models.CharField(max_length=40)
-    
-    description = models.CharField(max_length=300)
+    title = models.CharField(_("title"), max_length=40)
 
-    image = models.ImageField(upload_to='img/gallery')
+    description = models.CharField(_("description"), max_length=300)
+
+    image = models.ImageField(_("image"), upload_to='img/gallery')
 
     class Meta:
-        verbose_name = 'galeria'
-        verbose_name_plural = 'galerias'
+        verbose_name = _('gallery')
+        verbose_name_plural = _('galleries')
 
     def __str__(self):
         return f"{self.get_gallery_display()} - {self.title}"
-    
-    @property
-    def gallery_human_readable(self):
-        return self.get_gallery_display()
 
     def save(self, *args, **kwargs):
 
         if self.title:
-            new_image_name = f"{self.get_gallery_display()}-{self.title.strip()}"
+            new_image_name = f"{self.gallery}-{self.title.strip()}"
             ext = os.path.splitext(self.image.name)[1]  # Get the image extension
             new_image_name_with_extension = f"{new_image_name}{ext}"
             self.image.name = new_image_name_with_extension

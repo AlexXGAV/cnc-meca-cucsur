@@ -299,150 +299,40 @@
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-            <h2>Galería</h2>
-            <p>Algunas imágenes sobre el desarrollo del proyecto, así como resultados y ejemplos de diseños que puedes utilizar en tú máquina</p>
+                <h2>Galería</h2>
+                <p>Algunas imágenes sobre el desarrollo del proyecto, así como resultados y ejemplos de diseños que puedes utilizar en tú máquina</p>
             </div>
 
             <div class="row" data-aos="fade-up">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="portfolio-flters">
-                <li data-filter="*" class="filter-active">Todo</li>
-                <li data-filter=".filter-{{gallery.gallery.0.propertyName}}">Desarrollo</li>
-                <li data-filter=".filter-design">Diseño</li>
-                <li data-filter=".filter-results">Resultados</li>
-                </ul>
-            </div>
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">Todo</li>
+                    {% for _, type in galleries %}
+                        <li data-filter=".filter-{{type}}">{{type}}</li>
+                    {% endfor %}
+                    
+                    </ul>
+                </div>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up">
-            {% for gallery in galleries %}
-            <div class="col-lg-4 col-md-6 portfolio-item filter-{{gallery.gallery}}">
+            {% for gallery, type in galleries %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{type}}">
                 <div class="portfolio-wrap">
-                <img src={{gallery.image.url}} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>{{gallery.title}}</h4>
-                    <p>{{gallery.description}}</p>
-                    <div class="portfolio-links">
-                    <a href={{gallery.image.url}} data-gallery="portfolioGallery" class="portfolio-lightbox" title={{gallery.title}}><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    <img src={{gallery.image.url}} class="img-fluid" alt="{{gallery.description}}">
+                    <div class="portfolio-info">
+                        <h4>{{gallery.title}}</h4>
+                        <p>{{gallery.description}}</p>
+                        <div class="portfolio-links">
+                        <a href={{gallery.image.url}} data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{gallery.description}}">
+                            <i class="bx bx-plus"></i>
+                        </a>
+                        {% comment %} <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             {% endfor %}
-            
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-development">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-2.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Ejemplo 1</h4>
-                    <p>Ejemplo</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-2.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Ejemplo 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-3.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Diseño 2</h4>
-                    <p>Diseño</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-3.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Diseño 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-results">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-4.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Resultado 2</h4>
-                    <p>Resultado</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-4.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resultado 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-development">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-5.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Ejemplo 2</h4>
-                    <p>Ejemplo</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-5.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Ejemplo 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-6.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Diseño 3</h4>
-                    <p>Diseño</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-6.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Diseño 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-results">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-7.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Resultado 1</h4>
-                    <p>Resultado</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-7.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resultado 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-results">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-8.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Resultado 3</h4>
-                    <p>Resultado</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-8.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resultado 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-development">
-                <div class="portfolio-wrap">
-                <img src={% static 'assets/img/portfolio/portfolio-9.jpg' %} class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Ejemplo 3</h4>
-                    <p>Ejemplo</p>
-                    <div class="portfolio-links">
-                    <a href={% static 'assets/img/portfolio/portfolio-9.jpg' %} data-gallery="portfolioGallery" class="portfolio-lightbox" title="Ejemplo 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
 
             </div>
 
