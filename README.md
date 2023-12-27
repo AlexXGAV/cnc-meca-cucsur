@@ -1,7 +1,7 @@
 # cnc-meca-cucsur
 Final project of the Mechatronic Engineering degree at the University Center of the South Coast of the University of Guadalajara.
 
-## Development of a CoreXY CNC Machine for Decorating Cookies by extruding glazed fluids with feedback temperature control using ESP32 and [FluidNC](http://wiki.fluidnc.com/)
+## Development of a CoreXY CNC Machine for Decorating Cookies by extruding glazed fluids with feedback temperature control using ESP32 and [Marlin](https://marlinfw.org/)
 
 The final project in Mechatronic Engineering at the University Center of the South Coast ([CUCSUR](http://cucsur.udg.mx/)) of the University of Guadalajara represents an exciting challenge that goes beyond a simple academic requirement. This project is the culmination of years of learning, dedication and passion for engineering, offering us as students the opportunity to surprise ourselves and the world with ingenious and creative solutions.
 
