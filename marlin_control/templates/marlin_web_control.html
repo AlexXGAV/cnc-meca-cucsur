@@ -1,0 +1,20 @@
+{% extends 'inner-page.html' %}
+{% load static %}
+{% block title %}Control CNC{% endblock title %}
+{% block innercontent %}
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <p>Aquí puedes controlar manualmente la máquina CNC decoradora de galletas y ejecutar gcode con linea de comandos o archivos guardados en la tarjeta micro SD
+                o si deseas proceder a decorar ve a
+                <a href={% url 'gcode' %} class="btn-get-started scrollto">Nuestra Aplicación</a>
+            </p>
+            <div class="d-flex align-items-stretch">
+                <iframe style="border:0; width: 100%; height: 1200px;" src="http://cnc.local" frameborder="0" allowfullscreen></iframe>
+            </div>
+           
+        </div>
+    </body>
+</html>
+{% endblock innercontent %}
