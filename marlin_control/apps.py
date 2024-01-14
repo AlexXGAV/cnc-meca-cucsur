@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FluidncControlConfig(AppConfig):
+class MarlinControlConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'fluidnc_control'
+    name = 'marlin_control'

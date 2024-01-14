@@ -1,5 +1,5 @@
 from django.urls import path
-from fluidnc_control.views import home
+from marlin_control.views import home
 
 
 urlpatterns = [
