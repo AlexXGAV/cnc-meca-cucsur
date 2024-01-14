@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zero_points',
-    'fluidnc_control',
+    'marlin_control',
     'home'
 ]
 

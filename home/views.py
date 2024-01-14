@@ -11,7 +11,7 @@ def home(request):
     galleries = Gallery.objects.all()
     gallery_data = [(gallery, _(str(gallery.get_gallery_display()))) for gallery in galleries]
 
-    if request.method == "POST":
+    if 'contact' in request.POST:
         print("Hola")
         formulario_contacto = ContactForm(data=request.POST)
         if formulario_contacto.is_valid():
