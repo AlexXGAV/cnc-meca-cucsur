@@ -52,9 +52,9 @@
             <ul>
             <li><a class="nav-link scrollto active" href="{% url 'home' %}#hero">Inicio</a></li>
             <li><a class="nav-link scrollto" href="{% url 'home' %}#about">Acerca de</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'home' %}#features">Pasos</a></li>
             <li><a class="nav-link scrollto " href="{% url 'home' %}#portfolio">Galería</a></li>
             <li><a class="nav-link scrollto" href="{% url 'home' %}#team">Equipo</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'Nuestra aplicación' %}">Nuestra aplicación</a></li>
             <li class="dropdown"><a href="#"><span>Sitios de Interes</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                     <li><a href="https://corexy.com/">Core XY</a></li>
@@ -102,11 +102,22 @@
                     <strong>Email:</strong> info@example.com<br>
                 </p>
                 <div class="social-links mt-3">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    {% comment %} <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> {% endcomment %}
+                    
                     <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" class="twitter">
+                        <i class="bx">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-twitter-x" viewBox="0 1 17 22">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                            </svg>
+                        </i>
+                        
+                    </a>
                     <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                    <a href="#" class="tiktok"><i class="bx bxl-tiktok"></i></a>
+                    {% comment %} <a href="#" class="skype"><i class="bx bxl-skype"></i></a> {% endcomment %}
                     <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
                 </div>
                 </div>
             </div>
@@ -137,8 +148,9 @@
                 <h4>Nuestro boletín</h4>
                 <p>Enterate de nuestras últimas actualizaciones y noticas sobre el mundo del Control Númerico y Diseño</p>
                 <form action="" method="post">
-                {% csrf_token %}
-                <input type="email" name="email"><input type="submit" value="Suscríbete">
+                    {% csrf_token %}
+                    <input type="email" name="email">
+                    <input type="submit" name="newsletter" value="Suscríbete">
                 </form>
 
             </div>
