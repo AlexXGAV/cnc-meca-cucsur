@@ -6,8 +6,8 @@
 <html>
     <body>
         <div class="container">
-            <h1>{% if subtitle %}{{subtitle}} {% else %}{{title}}{% endif %}</h1>
-            <div class="d-flex align-items-stretch">
+            <h1>{% if subtitle %}{{subtitle}} {% endif %}</h1>
+            <div>
                 {% if file_html %}{% include file_html %}{% endif %}
             </div>
         </div>

@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html>
     <body>
-    <p>aaaaaaaaa</p>
+        <!-- ======= Form Section ======= -->
+        <section id="gcode modifier" class="contact">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Modificador Gcode</h2>
+                    <p>Modifica tu archivo G code para que realice la decoración más de una galleta de forma automática.</p>
+                </div>
+
+                <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                    <div class="col-lg-10">
+                        <form enctype="multipart/form-data" method="post" role="form" action="">
+                                {% csrf_token %}
+                                
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    {{ form.name }}
+                                    
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    {{ form.radius_cookie }}
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                {{ form.machine }}
+                            </div>
+                            <div class="form-group mt-3">
+                                {{ form.file }}
+                            </div>
+                            <div class="my-3">
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" name="gcode" class="btn btn-success" value="Subir Archivo">
+                            </div>
+                        </form>
+                    </div>
+                    {% if image is not None %}
+                    <img src= {{image.url}} alt="imagen con los circulos">
+                    {% endif %}
+                </div>
+            </div>
+        </section><!-- End Form Section -->
     </body>
 </html>
